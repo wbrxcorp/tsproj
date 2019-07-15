@@ -1,0 +1,30 @@
+{
+  "scripts": {
+    "build": "./node_modules/.bin/cross-env NODE_ENV=production ./node_modules/.bin/webpack-cli --config=src/webpack.config.js --mode=production",
+    "start": "./node_modules/.bin/cross-env NODE_ENV=development ./node_modules/.bin/ts-node-dev src/server.ts"
+  },
+  "dependencies": {
+    "typescript": "3.5.3",
+    "ts-node": "^8.3.0",
+    "ts-node-dev": "^1.0.0-pre.40",
+    "@types/jsdom": "^12.2.4",
+    "@types/node": "^8.10.50",
+    "express": "^4.17.1",
+    "angular": "^1.7.8",
+    "@types/angular": "^1.6.55",
+    "@angular/common": "^8.1.1",
+    "@angular/compiler": "^8.1.1",
+    "@angular/core": "^8.1.1",
+    "@angular/platform-browser": "^8.1.1",
+    "@angular/platform-browser-dynamic": "^8.1.1",
+    "rxjs": "^6.4.0",
+    "zone.js": "^0.9.1",
+    "reflect-metadata": "^0.1.13",
+    "webpack": "^4.35.3",
+    "webpack-cli": "^3.3.6",
+    "ts-loader": "^6.0.4",
+    "css-loader": "^3.0.0",
+    "hard-source-webpack-plugin": "^0.13.1",
+    "cross-env": "^5.2.0"
+  }
+}
