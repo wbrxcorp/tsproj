@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <title>BogoSSI</title>
+  </head>
+  <body>
+    <h1>BogoSSI</h1>
+    <!--#include virtual="/part.inc"-->
+  </body>
+</html>
