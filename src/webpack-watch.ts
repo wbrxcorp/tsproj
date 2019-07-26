@@ -1,6 +1,7 @@
 import webpack = require("webpack");
 
 let lastHash:string | null | undefined = null;
+let onSuccess:()=>void = null;
 
 function compilerCallback(err:any, stats:webpack.Stats) {
   if (err) {
@@ -27,11 +28,12 @@ function compilerCallback(err:any, stats:webpack.Stats) {
       console.log('webpack+ts-loader: コンパイルエラーです。');
     } else {
       console.log('webpack+ts-loader: コンパイル成功');
+      if (onSuccess) onSuccess();
     }
   }
 }
 
-export function run() {
+export function run(_onSuccess:()=>void = null) {
   const webpackConfig = require("./webpack.config");
   let configs = webpackConfig instanceof Array? webpackConfig : [webpackConfig];
   configs.forEach(config=> {
@@ -40,5 +42,6 @@ export function run() {
   });
   let watchOptions:webpack.ICompiler.WatchOptions = {};
   let compiler = webpack(configs);
+  onSuccess = _onSuccess;
   compiler.watch(watchOptions, compilerCallback);
 }
