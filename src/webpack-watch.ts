@@ -1,7 +1,7 @@
 import webpack = require("webpack");
 
 let lastHash:string | null | undefined = null;
-let onSuccess:()=>void = null;
+let onSuccess:(()=>void) | null = null;
 
 function compilerCallback(err:any, stats:webpack.Stats) {
   if (err) {
@@ -33,7 +33,7 @@ function compilerCallback(err:any, stats:webpack.Stats) {
   }
 }
 
-export function run(_onSuccess:()=>void = null) {
+export function run(_onSuccess:(()=>void) | null = null) {
   const webpackConfig = require("./webpack.config");
   let configs = webpackConfig instanceof Array? webpackConfig : [webpackConfig];
   configs.forEach(config=> {
